@@ -1,0 +1,207 @@
+:icons: font
+:src: ../../
+:srcprefix: 02-ReplicaSet
+:appname: spring-music
+:showsrc:
+:github:
+//:content:
+:role: schedule
+
+TIP: *_Time to complete 30ms_*
+
+A ReplicaSet’s purpose is to maintain a stable set of replica Pods running at any given time. As such, it is often used to guarantee the availability of a specified number of identical Pods.
+
+In this exercise, we shall cover the following operations using K8s manifests,
+
+[options="interactive"]
+* [x] Creating a _ReplicaSet_
+* [x] Scheduling time _Hard_ Node _Affinity_
+* [x] Scheduling time _Soft_ Node _Affinity_
+* [x] Scheduling time _Anti-Affinity_
+
+NOTE: Will install all the objects to the _default_ namespace.
+
+== ReplicaSet
+=== Create a ReplicaSet
+.List the replicasets in the default namespace
+[source,go-cli]
+kubectl get rs
+
+NOTE: The output will be similar to this,
+[source]
+No resources found.
+
+
+.Create a ReplicaSet by running the below file
+====
+{checkedbox} *kubectl apply -f  {srcprefix}/01.ReplicaSet.yaml*
+
+ifdef::showsrc+github[]
+NOTE: Source:
+include::https://github.com/srinivasa-vasu/k8s-workshop/blob/master/{srcprefix}/01.ReplicaSet.yaml[]
+endif::showsrc+github[]
+====
+
+.Verify that a rs named {appname} gets created
+[source]
+kubectl get rs,pods
+
+NOTE: The output will be similar to this
+[source,subs="verbatim,attributes"]
+----
+NAME                                 DESIRED   CURRENT   READY     AGE
+replicaset.extensions/{appname}      1         1         1         6s
+
+NAME               READY     STATUS    RESTARTS   AGE
+pod/{appname}   1/1          Running   0          22m
+----
+
+==== Clean-up
+.Run the below script to undo the changes
+====
+{checkedbox} sh {srcprefix}/_1.clean.sh
+
+ifdef::showsrc+github[]
+NOTE: Source:
+include::https://github.com/srinivasa-vasu/k8s-workshop/blob/master/{srcprefix}/_1.clean.sh[]
+endif::showsrc+github[]
+====
+
+=== Pod Hard Affinity
+
+.Create a ReplicaSet by running the below file
+====
+{checkedbox} *kubectl apply -f  {srcprefix}/02.ReplicaSet-node-affinity-hard.yaml*
+
+ifdef::showsrc+github[]
+NOTE: Source:
+include::https://github.com/srinivasa-vasu/k8s-workshop/blob/master/{srcprefix}/02.ReplicaSet-node-affinity-hard.yaml[]
+endif::showsrc+github[]
+====
+
+.Verify the output of the command
+[source]
+kubectl get rs,pods
+
+NOTE: The output will be similar to this
+[source,subs="verbatim,attributes"]
+----
+NAME                                 DESIRED   CURRENT   READY     AGE
+replicaset.extensions/{appname}      1         1         0         3s
+
+NAME                     READY     STATUS    RESTARTS   AGE
+pod/{appname}-j2pl2      0/1       Pending   0          3s
+----
+
+Status of the pod would be pending because of the affinity rule _requiredDuringSchedulingIgnoredDuringExecution_.
+
+TIP: requiredDuringSchedulingIgnoredDuringExecution must be met for a pod to be scheduled onto a node. In this case it would be “only run the pod on nodes with with label having key as _role_ and value as _{role}_".
+
+Refer <<Add labels>> section to assign the required label.
+
+NOTE: The output will be similar to this
+[source,subs="verbatim,attributes"]
+----
+NAME                                 DESIRED   CURRENT   READY     AGE
+replicaset.extensions/{appname}      1         1         1         6s
+
+NAME                  READY        STATUS    RESTARTS   AGE
+pod/{appname}-j2pl2   1/1          Running   0          22m
+----
+
+==== Clean-up
+.Run the below script to undo the changes
+====
+{checkedbox} sh {srcprefix}/_1.clean.sh
+
+ifdef::showsrc+github[]
+NOTE: Source:
+include::https://github.com/srinivasa-vasu/k8s-workshop/blob/master/{srcprefix}/_1.clean.sh[]
+endif::showsrc+github[]
+====
+
+
+=== Pod Soft Affinity
+
+.Create a ReplicaSet by running the below file
+====
+{checkedbox} *kubectl apply -f  {srcprefix}/03.ReplicaSet-node-affinity-soft.yaml*
+
+ifdef::showsrc+github[]
+NOTE: Source:
+include::https://github.com/srinivasa-vasu/k8s-workshop/blob/master/{srcprefix}/03.ReplicaSet-node-affinity-soft.yaml[]
+endif::showsrc+github[]
+====
+
+
+.Verify the output of the command
+[source]
+kubectl get rs,pods
+
+NOTE: The output will be similar to this
+[source,subs="verbatim,attributes"]
+----
+NAME                                 DESIRED   CURRENT   READY     AGE
+replicaset.extensions/{appname}      1         1         1         6s
+
+NAME                  READY        STATUS    RESTARTS   AGE
+pod/{appname}-j2pl2   1/1          Running   0          22m
+----
+
+TIP: preferredDuringSchedulingIgnoredDuringExecution is a soft affinity. It specifies preferences that the scheduler will try to enforce but will not guarantee.
+
+
+==== Clean-up
+.Run the below script to undo the changes
+====
+{checkedbox} sh {srcprefix}/_1.clean.sh
+
+ifdef::showsrc+github[]
+NOTE: Source:
+include::https://github.com/srinivasa-vasu/k8s-workshop/blob/master/{srcprefix}/_1.clean.sh[]
+endif::showsrc+github[]
+====
+
+
+=== Anti-Affinity
+
+.Create a ReplicaSet by running the below file
+====
+{checkedbox} *kubectl apply -f  {srcprefix}/04.ReplicaSet-pod-antiaffinity.yaml*
+
+ifdef::showsrc+github[]
+NOTE: Source:
+include::https://github.com/srinivasa-vasu/k8s-workshop/blob/master/{srcprefix}/04.ReplicaSet-pod-antiaffinity.yaml[]
+endif::showsrc+github[]
+====
+
+
+.Verify the output of the command
+[source]
+kubectl get rs,pods
+
+NOTE: The output will be similar to this
+[source,subs="verbatim,attributes"]
+----
+NAME                                 DESIRED   CURRENT   READY     AGE
+replicaset.extensions/{appname}      2         2         0         6s
+
+NAME                     READY     STATUS    RESTARTS   AGE
+pod/{appname}-s4dcw      1/1       Running   0          5s
+pod/{appname}-tzpt8      0/1       Pending   0          5s
+----
+
+In this example, we are trying to run two instances of _{appname}_ by having _replicas_ as 2 with one worker node.
+
+TIP: podAntiAffinity rule makes sure that instances get distributed across nodes and no two instances of it lands in the same node.
+
+==== Clean-up
+.Run the below script to undo the changes
+====
+{checkedbox} sh {srcprefix}/_1.clean.sh
+
+ifdef::showsrc+github[]
+NOTE: Source:
+include::https://github.com/srinivasa-vasu/k8s-workshop/blob/master/{srcprefix}/_1.clean.sh[]
+endif::showsrc+github[]
+====
