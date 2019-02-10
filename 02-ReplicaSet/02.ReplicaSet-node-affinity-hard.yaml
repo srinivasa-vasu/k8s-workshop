@@ -1,0 +1,51 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: spring-music
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: spring-music
+  template:
+    metadata:
+      labels:
+        app: spring-music
+    spec:
+      containers:
+      - name: spring-music
+        image: humourmind/spring-music:blue
+        imagePullPolicy: Always
+        ports:
+        - name: web
+          containerPort: 8080
+        resources:
+          requests:
+            memory: "768M"
+            cpu: "250m"
+          limits:
+            memory: "1G"
+            cpu: "750m"
+        readinessProbe:
+          httpGet:
+            path: /actuator/health
+            port: web
+          initialDelaySeconds: 40
+          periodSeconds: 5
+          failureThreshold: 4
+        livenessProbe:
+          httpGet:
+            path: /actuator/health
+            port: web
+          initialDelaySeconds: 60
+          periodSeconds: 5
+          failureThreshold: 3
+      affinity:
+        nodeAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            nodeSelectorTerms:
+            - matchExpressions:
+              - key: role
+                operator: In
+                values:
+                  - node1
