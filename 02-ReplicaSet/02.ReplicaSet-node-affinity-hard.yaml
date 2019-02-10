@@ -48,4 +48,4 @@ spec:
               - key: role
                 operator: In
                 values:
-                  - node1
+                  - schedule

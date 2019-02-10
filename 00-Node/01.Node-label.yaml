@@ -3,4 +3,4 @@ kind: Node
 metadata:
   name: $NODE_NAME
   labels:
-    role: node1
+    role: schedule
