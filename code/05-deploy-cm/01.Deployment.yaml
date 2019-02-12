@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hello-k8s
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: hello-k8s
+  template:
+    metadata:
+      labels:
+        app: hello-k8s
+    spec:
+      containers:
+      - name: hello-k8s
+        image: humourmind/hello-k8s-world:1.0.0
+        imagePullPolicy: Always
+        ports:
+        - name: web
+          containerPort: 8080
+        resources:
+          requests:
+            memory: "768M"
+            cpu: "250m"
+          limits:
+            memory: "1G"
+            cpu: "750m"

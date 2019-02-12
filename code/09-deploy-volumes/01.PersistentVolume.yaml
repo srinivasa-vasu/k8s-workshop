@@ -1,0 +1,153 @@
+apiVersion: v1
+kind: Secret
+metadata:
+  name: jhipapp-postgresql
+  labels:
+    app: jhipapp-postgresql
+type: Opaque
+data:
+  postgres-password: cmxhMDBqcHA=
+---
+apiVersion: v1
+kind: Secret
+metadata:
+  name: jwt-secret
+type: Opaque
+data:
+  secret: TnpnMk5qYzNORFE1WTJReU9ERmtOekV3TXpGbU1XRXlOakptTkdSak1UQTNNbUkwTWpNMU1HUmxNVFl3TWpJMk5HSTNZamhrTldOaE5USmlOall5T0dabU9XVmxOemN4WlRWa09ESmtOMlE0Tm1FNE9EVXdZekptTUdRNU9HTTBZelZrT0RJd05USXdaV0ppTW1RMFpETmxZV05qWXpka1ltRXlZMlUzWm1ZPQ==
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: jhipapp
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: jhipapp
+  template:
+    metadata:
+      labels:
+        app: jhipapp
+    spec:
+      initContainers:
+        - name: init-ds
+          image: busybox:latest
+          command:
+            - '/bin/sh'
+            - '-c'
+            - |
+              while true
+              do
+                rt=$(nc -z -w 1 jhipapp-postgresql 5432)
+                if [ $? -eq 0 ]; then
+                  echo "DB is UP"
+                  break
+                fi
+                echo "DB is not yet reachable;sleep for 10s before retry"
+                sleep 10
+              done
+      containers:
+        - name: jhipapp-app
+          image: humourmind/jhipapp:1.0.0
+          env:
+            - name: SPRING_PROFILES_ACTIVE
+              value: prod
+            - name: JHIPSTER_SECURITY_AUTHENTICATION_JWT_BASE64_SECRET
+              valueFrom:
+                secretKeyRef:
+                  name: jwt-secret
+                  key: secret
+            - name: SPRING_DATASOURCE_URL
+              value: jdbc:postgresql://jhipapp-postgresql:5432/jhipapp
+            - name: SPRING_DATASOURCE_USERNAME
+              value: jhipapp
+            - name: SPRING_DATASOURCE_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: jhipapp-postgresql
+                  key: postgres-password
+            - name: JAVA_OPTS
+              value: " -Xmx256m -Xms256m"
+          resources:
+            requests:
+              memory: "256Mi"
+              cpu: "500m"
+            limits:
+              memory: "512Mi"
+              cpu: "1"
+          ports:
+            - name: http
+              containerPort: 8080
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: jhipapp
+  labels:
+    app: jhipapp
+spec:
+  selector:
+    app: jhipapp
+  ports:
+    - name: http
+      port: 8080
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: jhipapp-postgresql
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: jhipapp-postgresql
+  template:
+    metadata:
+      labels:
+        app: jhipapp-postgresql
+    spec:
+      volumes:
+        - name: data
+          persistentVolumeClaim:
+            claimName: jhipapp-postgresql
+      containers:
+        - name: postgres
+          image: postgres:10.4
+          env:
+            - name: POSTGRES_USER
+              value: jhipapp
+            - name: POSTGRES_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: jhipapp-postgresql
+                  key: postgres-password
+          ports:
+            - containerPort: 5432
+          volumeMounts:
+            - name: data
+              mountPath: /var/lib/postgresql/
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: jhipapp-postgresql
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 1Gi
+    limits:
+      storage: 2Gi
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: jhipapp-postgresql
+spec:
+  selector:
+    app: jhipapp-postgresql
+  ports:
+    - port: 5432
+
