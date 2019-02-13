@@ -1,6 +1,10 @@
-> **Tip**
-> 
-> ***Time to complete 30ms***
+---
+pageTitle: Let's get to Deployment
+---
+
+<md-icon class="fa fa-clock-o fa-lg" aria-hidden="true"></md-icon> Time to complete 30ms
+
+<i class="fa fa-info-circle fa-lg" aria-hidden="true" style="color:dark-blue"></i>
 
 A Deployment controller provides declarative updates for Pods and
 ReplicaSets.
@@ -13,13 +17,12 @@ existing Deployments and adopt all their resources with new Deployments.
 In this exercise, we shall cover the following operations using K8s
 manifests,
 
-  - ✓ *Create* a *Deployment*
+<ul class="fa-ul">
+  <li><i class="fa-li fa fa-square"></i><b>Create</b> a <b>Deployment</b></li>
+  <li><i class="fa-li fa fa-square"></i>Deployment <b>Update Strategies</b></li>
+</ul>
 
-  - ✓ Deployment *Update Strategies*
-
-> **Note**
-> 
-> Will install all the objects to the *default* namespace.
+<i class="fa fa-info-circle" aria-hidden="true"></i> Will install all the objects to the *default* namespace.
 
 # Deployment
 
@@ -31,40 +34,33 @@ manifests,
 kubectl get deploy
 ```
 
-> **Note**
-> 
-> The output will be similar to this,
+<i class="fa fa-spinner fa-pulse fa-fw"></i>
+The output will be similar to this,
 
     No resources found.
 
-{checkedbox} **kubectl apply -f 04-Deployment/01.Deployment.yaml**
+Create a new Deployment by running the manifest <i class="fa fa-check-circle" aria-hidden="true" style="color:green"></i> `kubectl apply -f 04-deploy/01.Deployment.yaml`
 
-> **Note**
-> 
-> Source:
-> <https://github.com/srinivasa-vasu/k8s-workshop/blob/master/04-Deployment/01.Deployment.yaml>
+{{codebase-file codebase="k8s-workshop" path="code/04-deploy/01.Deployment.yaml" lang="yaml" ref="master" hidden="true"}}
 
 **Verify the output.**
 
     kubectl get deploy,rs,pods
 
-> **Note**
-> 
-> The output will be similar to
-    this
+<i class="fa fa-spinner fa-pulse fa-fw"></i>
+The output will be similar to this
 
-    NAME                                 DESIRED   CURRENT   UP-TO-DATE   AVAILABLE   AGE
+    NAME                                    DESIRED   CURRENT   UP-TO-DATE   AVAILABLE   AGE
     deployment.extensions/spring-music      2         2         2            0           2m16s
     
-    NAME                                           DESIRED   CURRENT   READY     AGE
+    NAME                                              DESIRED   CURRENT   READY     AGE
     replicaset.extensions/spring-music-846f7447f      2         2         0         2m16s
     
-    NAME                               READY     STATUS    RESTARTS   AGE
+    NAME                                  READY     STATUS    RESTARTS   AGE
     pod/spring-music-846f7447f-znb58      1/1       Running   1          2m16s
     pod/spring-music-846f7447f-zqfs2      1/1       Running   1          2m16s
 
-> **Note**
-> 
+
 > No need to run the clean-up script for this example.
 
 ## Update a Deployment
@@ -77,88 +73,72 @@ kubectl get deploy
 kubectl get deploy,rs,pods
 ```
 
-> **Note**
-> 
-> The output will be similar to
-    this
+<i class="fa fa-spinner fa-pulse fa-fw"></i>
+The output will be similar to this,
 
-    NAME                                 DESIRED   CURRENT   UP-TO-DATE   AVAILABLE   AGE
+    NAME                                    DESIRED   CURRENT   UP-TO-DATE   AVAILABLE   AGE
     deployment.extensions/spring-music      2         2         2            0           2m16s
     
-    NAME                                           DESIRED   CURRENT   READY     AGE
+    NAME                                              DESIRED   CURRENT   READY     AGE
     replicaset.extensions/spring-music-846f7447f      2         2         0         2m16s
     
-    NAME                               READY     STATUS    RESTARTS   AGE
+    NAME                                  READY     STATUS    RESTARTS   AGE
     pod/spring-music-846f7447f-znb58      1/1       Running   1          2m16s
     pod/spring-music-846f7447f-zqfs2      1/1       Running   1          2m16s
 
 **Watch the deployment in a new window.**
 
 ``` go-cli
-kubectl get deploy,rs,pods
+watch kubectl get deploy,rs,pods
 ```
 
-> **Note**
-> 
-> The output will be similar to
-    this
+<i class="fa fa-spinner fa-pulse fa-fw"></i>
+The output will be similar to this,
 
-    NAME                                 DESIRED   CURRENT   UP-TO-DATE   AVAILABLE   AGE
+    NAME                                    DESIRED   CURRENT   UP-TO-DATE   AVAILABLE   AGE
     deployment.extensions/spring-music      2         2         2            0           2m16s
     
-    NAME                                           DESIRED   CURRENT   READY     AGE
+    NAME                                              DESIRED   CURRENT   READY     AGE
     replicaset.extensions/spring-music-846f7447f      2         2         0         2m16s
     
-    NAME                               READY     STATUS    RESTARTS   AGE
+    NAME                                  READY     STATUS    RESTARTS   AGE
     pod/spring-music-846f7447f-znb58      1/1       Running   1          2m16s
     pod/spring-music-846f7447f-zqfs2      1/1       Running   1          2m16s
 
-{checkedbox} **kubectl apply -f
-04-Deployment/02.Deployment-recreate.yaml**
 
-> **Note**
-> 
-> Source:
-> <https://github.com/srinivasa-vasu/k8s-workshop/blob/master/04-Deployment/02.Deployment-recreate.yaml>
+Update the Deployment object by running the manifest <i class="fa fa-check-circle" aria-hidden="true" style="color:green"></i> `kubectl apply -f 04-deploy/02.Deployment-recreate.yaml`
+                                                     
+{{codebase-file codebase="k8s-workshop" path="code/04-deploy/02.Deployment-recreate.yaml" lang="yaml" ref="master" hidden="true"}}
 
-> **Note**
-> 
-> The output will be similar to
-    this
+<i class="fa fa-spinner fa-pulse fa-fw"></i>
+The output will be similar to this in the watch window,
 
-    NAME                                 DESIRED   CURRENT   UP-TO-DATE   AVAILABLE   AGE
+    NAME                                    DESIRED   CURRENT   UP-TO-DATE   AVAILABLE   AGE
     deployment.extensions/spring-music      2         0         0            0           9m13s
     
-    NAME                                           DESIRED   CURRENT   READY     AGE
+    NAME                                              DESIRED   CURRENT   READY     AGE
     replicaset.extensions/spring-music-846f7447f      0         0         0         9m13s
     
-    NAME                               READY     STATUS        RESTARTS   AGE
+    NAME                                  READY     STATUS        RESTARTS   AGE
     pod/spring-music-846f7447f-znb58      0/1       Terminating   0          9m13s
     pod/spring-music-846f7447f-zqfs2      0/1       Terminating   0          9m13s
 
-> **Tip**
-> 
-> All existing Pods are killed before new ones are created when
-> *.spec.strategy.type==Recreate* and it doesn’t guarantee zero down
-> time deployment
+<i class="fa fa-exclamation-circle fa-lg" aria-hidden="true" style="color:maroon"></i>
+All existing Pods are killed before new ones are created when
+*.spec.strategy.type==Recreate* and it doesn’t guarantee zero down
+time deployment
 
 #### Clean-up
 
-{checkedbox} sh 04-Deployment/02\_.clean.sh
+Exit the watch window and run the script <i class="fa fa-undo" aria-hidden="true" style="color:red"></i> `04-deploy/02_.clean.sh` to undo the changes
 
-> **Note**
-> 
-> Source:
-> <https://github.com/srinivasa-vasu/k8s-workshop/blob/master/04-Deployment/02_.clean.sh>
+{{codebase-file codebase="k8s-workshop" path="code/04-deploy/02_.clean.sh" lang="bash" ref="master" hidden="true"}}
 
 ### RollingUpdate
 
-{checkedbox} **kubectl apply -f 04-Deployment/03.Deployment.yaml**
+Create a new Deployment by running the manifest <i class="fa fa-check-circle" aria-hidden="true" style="color:green"></i> `kubectl apply -f 04-deploy/03.Deployment.yaml`
 
-> **Note**
-> 
-> Source:
-> <https://github.com/srinivasa-vasu/k8s-workshop/blob/master/04-Deployment/03.Deployment.yaml>
+{{codebase-file codebase="k8s-workshop" path="code/04-deploy/03.Deployment.yaml" lang="yaml" ref="master" hidden="true"}}
 
 **List the deployments in the default namespace.**
 
@@ -166,84 +146,78 @@ kubectl get deploy,rs,pods
 kubectl get deploy,rs,pods
 ```
 
-> **Note**
-> 
-> The output will be similar to
-    this
+<i class="fa fa-spinner fa-pulse fa-fw"></i>
+The output will be similar to this,
 
-    NAME                                 DESIRED   CURRENT   UP-TO-DATE   AVAILABLE   AGE
+
+    NAME                                    DESIRED   CURRENT   UP-TO-DATE   AVAILABLE   AGE
     deployment.extensions/spring-music      2         2         2            0           2m16s
     
-    NAME                                           DESIRED   CURRENT   READY     AGE
+    NAME                                              DESIRED   CURRENT   READY     AGE
     replicaset.extensions/spring-music-846f7447f      2         2         0         2m16s
     
-    NAME                               READY     STATUS    RESTARTS   AGE
+    NAME                                  READY     STATUS    RESTARTS   AGE
     pod/spring-music-846f7447f-znb58      1/1       Running   1          2m16s
     pod/spring-music-846f7447f-zqfs2      1/1       Running   1          2m16s
 
 **Watch the deployment in a new window.**
 
 ``` go-cli
-kubectl get deploy,rs,pods
+watch kubectl get deploy,rs,pods
 ```
 
-> **Note**
-> 
-> The output will be similar to
-    this
+<i class="fa fa-spinner fa-pulse fa-fw"></i>
+The output will be similar to this,
 
-    NAME                                 DESIRED   CURRENT   UP-TO-DATE   AVAILABLE   AGE
+    NAME                                    DESIRED   CURRENT   UP-TO-DATE   AVAILABLE   AGE
     deployment.extensions/spring-music      2         2         2            0           2m16s
     
-    NAME                                           DESIRED   CURRENT   READY     AGE
+    NAME                                              DESIRED   CURRENT   READY     AGE
     replicaset.extensions/spring-music-846f7447f      2         2         0         2m16s
     
-    NAME                               READY     STATUS    RESTARTS   AGE
+    NAME                                  READY     STATUS    RESTARTS   AGE
     pod/spring-music-846f7447f-znb58      1/1       Running   1          2m16s
     pod/spring-music-846f7447f-zqfs2      1/1       Running   1          2m16s
 
-{checkedbox} **kubectl apply -f
-04-Deployment/03.Deployment-rolling-update.yaml**
 
-> **Note**
-> 
-> Source:
-> <https://github.com/srinivasa-vasu/k8s-workshop/blob/master/04-Deployment/03.Deployment-rolling-update.yaml>
+Update the Deployment object by running the manifest <i class="fa fa-check-circle" aria-hidden="true" style="color:green"></i> `kubectl apply -f 04-deploy/03.Deployment-rolling-update.yaml`
+                                                     
+{{codebase-file codebase="k8s-workshop" path="code/04-deploy/03.Deployment-rolling-update.yaml" lang="yaml" ref="master" hidden="true"}}
 
-> **Note**
-> 
-> The output will be similar to
-    this
-
-    NAME                                 DESIRED   CURRENT   UP-TO-DATE   AVAILABLE   AGE
+<i class="fa fa-spinner fa-pulse fa-fw"></i>
+The output will be similar to this in the watch window,
+ 
+    NAME                                    DESIRED   CURRENT   UP-TO-DATE   AVAILABLE   AGE
     deployment.extensions/spring-music      2         0         0            0           9m13s
     
-    NAME                                           DESIRED   CURRENT   READY     AGE
+    NAME                                              DESIRED   CURRENT   READY     AGE
     replicaset.extensions/spring-music-846f7447f      0         0         0         9m13s
     
-    NAME                               READY     STATUS        RESTARTS   AGE
+    NAME                                  READY     STATUS        RESTARTS   AGE
     pod/spring-music-846f7447f-znb58      0/1       Terminating   0          9m13s
-    pod/spring-music-846f7447f-zqfs2      0/1       Running       0          9m13s
-    pod/spring-music-846f7447f-78lwx      0/1       Running       0          22s
-    pod/spring-music-8677d84f54-66fgh     0/1       Running       0          4s
+    pod/spring-music-846f7447f-zqfs2      1/1       Running       0          9m13s
+    pod/spring-music-846f7447f-78lwx      1/1       Running       0          22s
+    pod/spring-music-8677d84f54-66fgh     1/1       Running       0          4s
 
-> **Tip**
-> 
-> The Deployment updates Pods in a rolling update fashion when
-> *.spec.strategy.type==RollingUpdate*. You can specify *maxUnavailable*
-> and *maxSurge* to control the rolling update process
-> 
-> **maxUnavailable** is an optional field that specifies the maximum
-> number of Pods that can be unavailable during the update process.
-> 
-> **maxSurge** is an optional field that specifies the maximum number of
-> Pods that can be created over the desired number of Pods.
+The Deployment updates Pods in a rolling update fashion when
+*.spec.strategy.type==RollingUpdate*. You can specify *maxUnavailable*
+and *maxSurge* to control the rolling update process
+ 
+**maxUnavailable** is an optional field that specifies the maximum
+number of Pods that can be unavailable during the update process.
+ 
+**maxSurge** is an optional field that specifies the maximum number of
+Pods that can be created over the desired number of Pods.
 
 #### Clean-up
 
-{checkedbox} sh 04-Deployment/\_1.clean.sh
+Exit the watch window and run the script <i class="fa fa-undo" aria-hidden="true" style="color:red"></i> `04-deploy/03_.clean.sh` to undo the changes
 
-> **Note**
-> 
-> Source:
-> <https://github.com/srinivasa-vasu/k8s-workshop/blob/master/04-Deployment/_1.clean.sh>
+{{codebase-file codebase="k8s-workshop" path="code/04-deploy/03_.clean.sh" lang="bash" ref="master" hidden="true"}}
+
+
+#Wrap-up
+<ul class="fa-ul">
+  <li><i class="fa-li fa fa-check-square"></i><b>Create</b> a <b>Deployment</b></li>
+  <li><i class="fa-li fa fa-check-square"></i>Deployment <b>Update Strategies</b></li>
+</ul>

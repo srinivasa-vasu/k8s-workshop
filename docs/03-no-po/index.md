@@ -1,6 +1,10 @@
-> **Tip**
-> 
-> ***Time to complete 30ms***
+---
+pageTitle: Node Pod Association
+---
+
+<md-icon class="fa fa-clock-o fa-lg" aria-hidden="true"></md-icon> Time to complete 30ms
+
+<i class="fa fa-info-circle fa-lg" aria-hidden="true" style="color:dark-blue"></i>
 
 Node affinity, is a property of pods that attracts them to a set of
 nodes (either as a preference or a hard requirement). Taints are the
@@ -15,15 +19,13 @@ not require) the pods to schedule onto nodes with matching taints
 In this exercise, we shall cover the following operations using K8s
 manifests,
 
-  - ✓ *Tolerating* a Node *Taint*
+<ul class="fa-ul">
+  <li><i class="fa-li fa fa-square"></i><b>Tolerating</b> a Node <b>Taint</b></li>
+  <li><i class="fa-li fa fa-square"></i><b>Un-tolerating</b> a Node <b>Taint</b></li>
+  <li><i class="fa-li fa fa-square"></i><b>Runtime </b> addition of a new Node <b>Taint</b></li>
+</ul>
 
-  - ✓ *Un-tolerating* a Node *Taint*
-
-  - ✓ *Runtime Node \_Taint*
-
-> **Note**
-> 
-> Will install all the objects to the *default* namespace.
+<i class="fa fa-info-circle" aria-hidden="true"></i> Will install all the objects to the *default* namespace.
 
 # Taint and Tolerations
 
@@ -35,22 +37,21 @@ manifests,
 kubectl get rs
 ```
 
-> **Note**
-> 
-> The output will be similar to this,
+<i class="fa fa-spinner fa-pulse fa-fw"></i>
+The output will be similar to this,
 
     No resources found.
 
-{checkedbox} **sh 03-Node-Pod/01\_.apply.sh**
+Create node and pod related changes by running the script <i class="fa fa-check-circle" aria-hidden="true" style="color:green"></i> `sh 03-no-po/01_.apply.sh`
 
-> **Note**
-> 
-> Source:
-> <https://github.com/srinivasa-vasu/k8s-workshop/blob/master/03-Node-Pod/01_.apply.sh>
+{{codebase-file codebase="k8s-workshop" path="code/03-no-po/01_.apply.sh" lang="bash" ref="master" hidden="true"}}
 
-> **Note**
-> 
-> The output will be similar to this
+Source of the associated K8s manifest,
+
+{{codebase-file codebase="k8s-workshop" path="code/02-no-po/01.Node-taint-match.yaml" lang="yaml" ref="master" hidden="true"}}
+
+<i class="fa fa-spinner fa-pulse fa-fw"></i>
+The output will be similar to this,
 
     kubectl get nodes -o yaml -o jsonpath={".items[*].spec.taints}"
     
@@ -60,22 +61,17 @@ kubectl get rs
     
     [map[effect:NoSchedule key:dedicated operator:Equal value:host]
 
-> **Note**
-> 
-> It places a *taint* on the chosen node with key as dedicated, value as
-> host, and taint effect NoSchedule. This means that no pod will be able
-> to schedule onto the node unless it has a matching toleration. To
-> schedule a pod onto the node we have to have matching *toleration* in
-> the PodSpec
+It places a *taint* on the chosen node with key as dedicated, value as
+host, and taint effect NoSchedule. This means that no pod will be able
+to schedule onto the node unless it has a matching toleration. To
+schedule a pod onto the node we have to have matching *toleration* in
+the PodSpec
 
 ### Clean-up
 
-{checkedbox} sh 03-Node-Pod/\_1.clean.sh
+Run the script <i class="fa fa-undo" aria-hidden="true" style="color:red"></i> `03-no-po/01_.clean.sh` to undo the changes
 
-> **Note**
-> 
-> Source:
-> <https://github.com/srinivasa-vasu/k8s-workshop/blob/master/03-Node-Pod/01_.clean.sh>
+{{codebase-file codebase="k8s-workshop" path="code/03-no-po/01_.clean.sh" lang="bash" ref="master" hidden="true"}}
 
 ## Un-tolerate a Taint
 
@@ -85,22 +81,24 @@ kubectl get rs
 kubectl get rs
 ```
 
-> **Note**
-> 
-> The output will be similar to this,
+<i class="fa fa-spinner fa-pulse fa-fw"></i>
+The output will be similar to this,
 
     No resources found.
 
-{checkedbox} **sh 03-Node-Pod/02\_.apply.sh**
 
-> **Note**
-> 
-> Source:
-> <https://github.com/srinivasa-vasu/k8s-workshop/blob/master/03-Node-Pod/02_.apply.sh>
+Create node and pod related changes by running the script <i class="fa fa-check-circle" aria-hidden="true" style="color:green"></i> `sh 03-no-po/02_.apply.sh`
 
-> **Note**
-> 
-> The output will be similar to this
+{{codebase-file codebase="k8s-workshop" path="code/03-no-po/02_.apply.sh" lang="bash" ref="master" hidden="true"}}
+
+
+Source of the associated K8s manifest,
+
+{{codebase-file codebase="k8s-workshop" path="code/02-no-po/02.Node-taint-no-match.yaml" lang="yaml" ref="master" hidden="true"}}
+
+
+<i class="fa fa-spinner fa-pulse fa-fw"></i>
+The output will be similar to this,
 
     kubectl get nodes -o yaml -o jsonpath={".items[*].spec.taints}"
     
@@ -111,24 +109,20 @@ kubectl get rs
     [map[]]
     
     kubectl get rs,pods
-    NAME                                 DESIRED   CURRENT   READY     AGE
+    NAME                                    DESIRED   CURRENT   READY     AGE
     replicaset.extensions/spring-music      1         1         0         20s
     
-    NAME                     READY     STATUS    RESTARTS   AGE
+    NAME                        READY     STATUS    RESTARTS   AGE
     pod/spring-music-vbbkl      0/1       Pending   0          20s
 
-> **Note**
-> 
-> Pod will be in pending state as it can’t tolerate the taint
+<i class="fa fa-exclamation-circle fa-lg" aria-hidden="true" style="color:maroon"></i>
+Pod will be in pending state as it can’t tolerate the taint
 
 ### Clean-up
 
-{checkedbox} sh 03-Node-Pod/\_1.clean.sh
+Run the script <i class="fa fa-undo" aria-hidden="true" style="color:red"></i> `03-no-po/02_.clean.sh` to undo the changes
 
-> **Note**
-> 
-> Source:
-> <https://github.com/srinivasa-vasu/k8s-workshop/blob/master/03-Node-Pod/02_.clean.sh>
+{{codebase-file codebase="k8s-workshop" path="code/03-no-po/02_.clean.sh" lang="bash" ref="master" hidden="true"}}
 
 ## Runtime Taint
 
@@ -138,22 +132,20 @@ kubectl get rs
 kubectl get rs
 ```
 
-> **Note**
-> 
-> The output will be similar to this,
+<i class="fa fa-spinner fa-pulse fa-fw"></i>
+The output will be similar to this,
 
     No resources found.
 
-{checkedbox} **sh 03-Node-Pod/03\_.Node-taint-match-no-match-apply.sh**
 
-> **Note**
-> 
-> Source:
-> <https://github.com/srinivasa-vasu/k8s-workshop/blob/master/03-Node-Pod/03_.Node-taint-match-no-match-apply.sh>
 
-> **Note**
-> 
-> The output will be similar to this
+Create node and pod related changes by running the script <i class="fa fa-check-circle" aria-hidden="true" style="color:green"></i> `sh 03-no-po/02_.apply.sh`
+
+{{codebase-file codebase="k8s-workshop" path="code/03-no-po/03_.apply.sh" lang="bash" ref="master" hidden="true"}}
+
+<i class="fa fa-spinner fa-pulse fa-fw"></i>
+The output will be similar to this,
+
 
     watch kubectl get pods
     Every 2.0s: kubectl get pods                                                                                                                                                                           sv.local: Sun Feb 10 16:05:03 2019
@@ -164,21 +156,24 @@ kubectl get rs
     NAME                 READY     STATUS    RESTARTS   AGE
     spring-music-w72zv   0/1       Pending   0          42s
 
-> **Note**
-> 
-> It places a *taint* on the chosen node with key as dedicated, value as
-> host, and taint effect NoSchedule. This means that no pod will be able
-> to schedule onto the node unless it has a matching toleration. As the
-> pod has a matching *toleration* it would get scheduled on the node and
-> hence the status was initially Running. After few seconds, it would
-> get updated to Pending as the addition of a new Runtime *NoExecute*
-> operator would make the pod un-tolerate the taint.
+It places a *taint* on the chosen node with key as dedicated, value as
+host, and taint effect NoSchedule. This means that no pod will be able
+to schedule onto the node unless it has a matching toleration. As the
+pod has a matching *toleration* it would get scheduled on the node and
+hence the status was initially Running. After few seconds, it would
+get updated to Pending as the addition of a new Runtime *NoExecute*
+operator would make the pod un-tolerate the taint.
 
 ### Clean-up
 
-{checkedbox} sh 03-Node-Pod/03\_.clean.sh
+Run the script <i class="fa fa-undo" aria-hidden="true" style="color:red"></i> `03-no-po/03_.clean.sh` to undo the changes
 
-> **Note**
-> 
-> Source:
-> <https://github.com/srinivasa-vasu/k8s-workshop/blob/master/03-Node-Pod/_1.clean.sh>
+{{codebase-file codebase="k8s-workshop" path="code/03-no-po/03_.clean.sh" lang="bash" ref="master" hidden="true"}}
+
+
+# Wrap-up
+<ul class="fa-ul">
+  <li><i class="fa-li fa fa-check-square"></i><b>Tolerating</b> a Node <b>Taint</b></li>
+  <li><i class="fa-li fa fa-check-square"></i><b>Un-tolerating</b> a Node <b>Taint</b></li>
+  <li><i class="fa-li fa fa-check-square"></i><b>Runtime </b> addition of a new Node <b>Taint</b></li>
+</ul>
