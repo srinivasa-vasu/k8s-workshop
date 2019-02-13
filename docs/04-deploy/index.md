@@ -5,7 +5,6 @@ pageTitle: Let's get to Deployment
 <md-icon class="fa fa-clock-o fa-lg" aria-hidden="true"></md-icon> Time to complete 30ms
 
 <i class="fa fa-info-circle fa-lg" aria-hidden="true" style="color:dark-blue"></i>
-
 A Deployment controller provides declarative updates for Pods and
 ReplicaSets.
 

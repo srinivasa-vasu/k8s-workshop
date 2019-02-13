@@ -5,7 +5,6 @@ pageTitle: Node Pod Association
 <md-icon class="fa fa-clock-o fa-lg" aria-hidden="true"></md-icon> Time to complete 30ms
 
 <i class="fa fa-info-circle fa-lg" aria-hidden="true" style="color:dark-blue"></i>
-
 Node affinity, is a property of pods that attracts them to a set of
 nodes (either as a preference or a hard requirement). Taints are the
 opposite – they allow a node to repel a set of pods.
@@ -48,7 +47,7 @@ Create node and pod related changes by running the script <i class="fa fa-check-
 
 Source of the associated K8s manifest,
 
-{{codebase-file codebase="k8s-workshop" path="code/02-no-po/01.Node-taint-match.yaml" lang="yaml" ref="master" hidden="true"}}
+{{codebase-file codebase="k8s-workshop" path="code/03-no-po/01.Node-taint-match.yaml" lang="yaml" ref="master" hidden="true"}}
 
 <i class="fa fa-spinner fa-pulse fa-fw"></i>
 The output will be similar to this,
@@ -94,7 +93,7 @@ Create node and pod related changes by running the script <i class="fa fa-check-
 
 Source of the associated K8s manifest,
 
-{{codebase-file codebase="k8s-workshop" path="code/02-no-po/02.Node-taint-no-match.yaml" lang="yaml" ref="master" hidden="true"}}
+{{codebase-file codebase="k8s-workshop" path="code/03-no-po/02.Node-taint-no-match.yaml" lang="yaml" ref="master" hidden="true"}}
 
 
 <i class="fa fa-spinner fa-pulse fa-fw"></i>
