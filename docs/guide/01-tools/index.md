@@ -5,7 +5,7 @@ pageTitle: Tools
 <md-icon class="fa fa-clock-o fa-lg" aria-hidden="true"></md-icon> Time to complete 15ms
 
 
-# Installing tools
+# <a name="set_tools">Installing tools
 
 
 ## MacOS
@@ -22,7 +22,7 @@ Verify the installation
 `envsubst --help`
 
 <i class="fa fa-spinner fa-pulse fa-fw"></i>
-The output will be something similar to this,
+The output will be similar to this,
 ```
 Usage: envsubst [OPTION] [SHELL-FORMAT]
 
@@ -45,6 +45,15 @@ Verify the installation
 
 `kubectl version`
 
+- **git**
+```
+brew install git
+```
+
+Verify the installation
+
+`git --version`
+
 
 ## Ubuntu/Debian
 
@@ -60,6 +69,15 @@ sudo apt-get install -y kubectl
 Verify the installation
 
 `kubectl version`
+
+- **git**
+```
+sudo apt-get install git-core
+```
+
+Verify the installation
+
+`git --version`
 
 
 ## CentOS
@@ -82,6 +100,15 @@ Verify the installation
 
 `kubectl version`
 
+- **git**
+```
+sudo yum install git
+```
+
+Verify the installation
+
+`git --version`
+
 
 ## Windows
 
@@ -96,6 +123,15 @@ install-kubectl.ps1 [-DownloadLocation <path>]
 Verify the installation
 
 `kubectl version`
+
+- **git**
+```
+choco install git
+```
+
+Verify the installation
+
+`git --version`
 
 
 

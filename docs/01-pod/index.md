@@ -194,7 +194,7 @@ The output will be similar to this
 <i class="fa fa-exclamation-circle fa-lg" aria-hidden="true" style="color:maroon"></i>
 Status of the pod would be pending as we have tried to assign it to a
 node with label having key as *role* and value as *schedule*, but none
-of the nodes will have the label. Refer [Add labels](../node/index.html#add_labels) section to
+of the nodes will have the label. Refer [Add labels](../00-node/index.html#add_labels) section to
 assign the required label.
 
 <i class="fa fa-info-circle fa-lg" aria-hidden="true" style="color:dark-blue"></i>

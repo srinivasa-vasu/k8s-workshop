@@ -90,7 +90,7 @@ to be scheduled onto a node. In this case it would be “only run the
 pod on nodes with with label having key as *role* and value as
 *schedule*.
 
-Refer [Add labels](../node/index.html#add_labels) section to
+Refer [Add labels](../00-node/index.html#add_labels) section to
 assign the required label.
 
 
