@@ -10,12 +10,15 @@ Finish setting up the tools before start doing this exercise. Refer [tools](../0
 # Clone the source code
 
 **Source code is available in the below location,**
+
 `https://github.com/srinivasa-vasu/k8s-workshop.git`
 
 - git clone the repo to your local directory
+
 `git clone https://github.com/srinivasa-vasu/k8s-workshop.git`
 
-- get to the cloned directory
+- navigate to the cloned repo directory
+
 `cd k8s-workshop`
 
 <i class="fa fa-spinner fa-pulse fa-fw"></i>

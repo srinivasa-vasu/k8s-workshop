@@ -5,7 +5,7 @@ pageTitle: Tools
 <md-icon class="fa fa-clock-o fa-lg" aria-hidden="true"></md-icon> Time to complete 15ms
 
 
-# <a name="set_tools">Installing tools
+# <a name="set_tools">Installing tools </a>
 
 
 ## MacOS

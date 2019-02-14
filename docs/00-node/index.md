@@ -18,7 +18,7 @@ In this exercise, we shall look at setting labels to a K8s node. It can be done 
 </ul>
 
 
-## <a name="add_label"></a>Add labels
+## <a name="add_label">Add labels</a>
 
 **List the nodes in your cluster.**
 
