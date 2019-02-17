@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: LimitRange
+metadata:
+  name: cpu-mem-default
+spec:
+  limits:
+    - default:
+        memory: 1M
+        cpu: 1
+      defaultRequest:
+        memory: 756M
+        cpu: 0.5
+      type: Container

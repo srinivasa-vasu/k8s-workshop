@@ -1,0 +1,22 @@
+kind: Pod
+apiVersion: v1
+metadata:
+  name: spring-music
+  labels:
+    app: spring-music
+    type: java
+spec:
+  containers:
+    - name: spring-music
+      image: humourmind/spring-music:blue
+      imagePullPolicy: Always
+      ports:
+        - name: web
+          containerPort: 8080
+      resources:
+        requests:
+          memory: 768M
+          cpu: 500m
+        limits:
+          memory: 1G
+          cpu: 1

@@ -23,7 +23,6 @@ spec:
       containers:
       - name: hello-k8s
         image: humourmind/hello-k8s-world:1.0.0
-        imagePullPolicy: Always
         env:
           - name: hello.folks
             valueFrom:

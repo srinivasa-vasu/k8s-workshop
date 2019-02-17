@@ -33,6 +33,7 @@ spec:
       initContainers:
         - name: init-ds
           image: busybox:latest
+          imagePullPolicy: IfNotPresent
           command:
             - '/bin/sh'
             - '-c'

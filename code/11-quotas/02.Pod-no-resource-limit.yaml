@@ -9,6 +9,7 @@ spec:
   containers:
   - name: spring-music
     image: humourmind/spring-music:blue
+    imagePullPolicy: Always
     ports:
     - name: web
       containerPort: 8080
