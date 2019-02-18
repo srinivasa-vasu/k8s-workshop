@@ -27,7 +27,7 @@ manifests,
 
 ## Create an atom
 
-**List the pods in the default namespace.**
+**List the pods in the default namespace**
 
 ``` go-cli
 kubectl get pods
@@ -43,7 +43,7 @@ Create a new Pod by running the manifest <i class="fa fa-check-circle" aria-hidd
 
 {{codebase-file codebase="k8s-workshop" path="code/01-pod/01.Pod.yaml" lang="yaml" ref="master" hidden="true"}}
 
-**Verify that a pod named spring-music gets created.**
+**Verify that a pod named spring-music gets created**
 
     kubectl get pods
 
@@ -72,7 +72,7 @@ Create a new Pod by running the manifest <i class="fa fa-check-circle" aria-hidd
 
 {{codebase-file codebase="k8s-workshop" path="code/01-pod/02.Pod-resource-limit.yaml" lang="yaml" ref="master" hidden="true"}}
 
-**Verify that a pod named spring-music gets created.**
+**Verify that a pod named spring-music gets created**
 
     kubectl get pods/spring-music -o custom-columns=NAME:.metadata.name,STATUS:.status.phase,CPU_REQUEST:spec.containers[*].resources.requests.cpu,CPU_LIMITT:.spec.containers[*].resources.limits.cpu,MEM_REQUEST:spec.containers[*].resources.requests.memory,MEM_LIMITT:.spec.containers[*].resources.limits.memory
 
@@ -106,7 +106,7 @@ Create a new Pod by running the manifest <i class="fa fa-check-circle" aria-hidd
 
 {{codebase-file codebase="k8s-workshop" path="code/01-pod/03.Pod-health-check.yaml" lang="bash" ref="master" hidden="true"}}
 
-**Verify that a pod named spring-music gets created.**
+**Verify that a pod named spring-music gets created**
 
     kubectl get pods/spring-music -o custom-columns=NAME:.metadata.name,STATUS:.status.phase,READINESS_PROBE:.spec.containers[*].readinessProbe.httpGet.path,LIVENESS_PROBE:.spec.containers[*].livenessProbe.httpGet.path
 
@@ -140,7 +140,7 @@ Create a new Pod by running the manifest <i class="fa fa-check-circle" aria-hidd
 
 {{codebase-file codebase="k8s-workshop" path="code/01-pod/04.Pod-lifecycle-hook.yaml" lang="bash" ref="master" hidden="true"}}
 
-**Verify that a pod named spring-music gets created.**
+**Verify that a pod named spring-music gets created**
 
     kubectl get pods/spring-music
 
@@ -180,7 +180,7 @@ Create a new Pod by running the manifest <i class="fa fa-check-circle" aria-hidd
 {{codebase-file codebase="k8s-workshop" path="code/01-pod/05.Pod-node-selector.yaml" lang="bash" ref="master" hidden="true"}}
 
 
-**Verify the output of the command.**
+**Verify the output of the command**
 
     kubectl get pods/spring-music
 
@@ -213,7 +213,6 @@ Run the script <i class="fa fa-undo" aria-hidden="true" style="color:red"></i> `
 
 <i class="fa fa-exclamation-circle fa-lg" aria-hidden="true" style="color:maroon"></i>
 Pls note if you delete a pod, it won’t get created automatically. K8s will not try to resurrect/recreate the deleted pod
-
 
 # Wrap-up
 <ul class="fa-ul">

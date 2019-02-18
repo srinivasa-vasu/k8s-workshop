@@ -20,7 +20,7 @@ In this exercise, we shall look at setting labels to a K8s node. It can be done 
 
 ## <a name="add_label">Add labels</a>
 
-**List the nodes in your cluster.**
+**List the nodes in your cluster**
 
 ``` go-cli
 kubectl get nodes -o wide
@@ -33,7 +33,7 @@ You will get an output similar to this based on the cluster size,
     vm-1234    Ready     <none>    35h       v1.12.4
     vm-4567    Ready     <none>    35h       v1.12.4
 
-**Choose one of the nodes and add a label to it.**
+**Choose one of the nodes and add a label to it**
 
 ``` kubectl
 kubectl label nodes vm-1234 role=schedule
@@ -46,7 +46,7 @@ Source of the K8s Node manifest,
 
 {{codebase-file codebase="k8s-workshop" path="code/00-node/01.Node-label.yaml" lang="yaml" ref="master" hidden="true"}}
 
-**Verify that your chosen node as role=schedule label applied.**
+**Verify that your chosen node as role=schedule label applied**
 
     kubectl get nodes --show-labels
 
@@ -59,7 +59,6 @@ Source of the K8s Node manifest,
 Run the script <i class="fa fa-undo" aria-hidden="true" style="color:red"></i> `00-node/_1.clean.sh` to undo the changes
 
 {{codebase-file codebase="k8s-workshop" path="code/00-node/_1.clean.sh" lang="bash" ref="master" hidden="true"}}
-
 
 # Wrap-up
 <ul class="fa-ul">

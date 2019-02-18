@@ -22,7 +22,7 @@ manifests,
 
 ## Create a Deployment
 
-**List the deployments in the default namespace.**
+**List the deployments in the default namespace**
 
 ``` go-cli
 kubectl get deploy
@@ -65,7 +65,7 @@ The output will be similar to this
 
 ![hello-world](helloworld.png)
 
-Press Control+C (linux) / Command+C (MacOS) to exit kubectl port-forward
+<i class="fa fa-bell fa-lg" aria-hidden="true" style="color:orange"></i> Press Control+C (linux) / Command+C (MacOS) to exit kubectl port-forward
 
 ## Update a Deployment
 
@@ -132,7 +132,7 @@ The output will be similar to this
 
 This time _hello.folks_ property is referred from the _ConfigMap_ object key
 
-Press Control+C (linux) / Command+C (MacOS) to exit kubectl port-forward
+<i class="fa fa-bell fa-lg" aria-hidden="true" style="color:orange"></i> Press Control+C (linux) / Command+C (MacOS) to exit kubectl port-forward
 
 ### Externalize Config - as File Volume mount
 
@@ -204,7 +204,7 @@ The output will be similar to this
 
 This time properties are referred from application.properties file mount
 
-Press Control+C (linux) / Command+C (MacOS) to exit kubectl port-forward
+<i class="fa fa-bell fa-lg" aria-hidden="true" style="color:orange"></i> Press Control+C (linux) / Command+C (MacOS) to exit kubectl port-forward
 
 
 #### Clean-up
@@ -212,7 +212,6 @@ Press Control+C (linux) / Command+C (MacOS) to exit kubectl port-forward
 Run the script <i class="fa fa-undo" aria-hidden="true" style="color:red"></i> `05-deploy-cm/_1.clean.sh` to undo the changes
 
 {{codebase-file codebase="k8s-workshop" path="code/05-deploy-cm/_1.clean.sh" lang="bash" ref="master" hidden="true"}}
-
 
 # Wrap-up
 <ul class="fa-ul">

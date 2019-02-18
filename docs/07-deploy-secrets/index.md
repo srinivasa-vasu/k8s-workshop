@@ -22,7 +22,7 @@ manifests,
 
 ## Externalize Sensitive Info
 
-**List the deployments in the default namespace.**
+**List the deployments in the default namespace**
 
 ``` go-cli
 kubectl get deploy
@@ -137,14 +137,13 @@ In both the manifests `postgres-password` is referred from the _Secret_ object n
 
 Log-in with `admin/admin` and try CRUD operations. Changes will be referenced from the postgres `pod/jhipapp-postgresql-846b69457d-b84ft` backing store same as last time without any issues.
 
-Press Control+C (linux) / Command+C (MacOS) to exit kubectl port-forward
+<i class="fa fa-bell fa-lg" aria-hidden="true" style="color:orange"></i> Press Control+C (linux) / Command+C (MacOS) to exit kubectl port-forward
 
 ### Clean-up
 
 Run the script <i class="fa fa-undo" aria-hidden="true" style="color:red"></i> `07-deploy-secrets/_1.clean.sh` to undo the changes
 
 {{codebase-file codebase="k8s-workshop" path="code/07-deploy-secrets/_1.clean.sh" lang="bash" ref="master" hidden="true"}}
-
 
 # Wrap-up
 <ul class="fa-ul">

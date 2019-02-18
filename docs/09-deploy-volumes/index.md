@@ -22,7 +22,7 @@ manifests,
 
 ## Create a Deployment without Persistent Volume
 
-**List the deployments in the default namespace.**
+**List the deployments in the default namespace**
 
 ``` go-cli
 kubectl get deploy
@@ -98,11 +98,11 @@ The output will be similar to this
 
 Go back to the browser and verify the changes made by refreshing the page. All the changes will be lost. As we killed the pod, all the data persisted in the ephemeral disk of the POD will be wiped out completely.  
 
-Press Control+C (linux) / Command+C (MacOS) to exit kubectl port-forward
+<i class="fa fa-bell fa-lg" aria-hidden="true" style="color:orange"></i> Press Control+C (linux) / Command+C (MacOS) to exit kubectl port-forward
 
 ## Create a Deployment with Persistent Volume
 
-eployment by running the manifest <i class="fa fa-check-circle" aria-hidden="true" style="color:green"></i> `kubectl apply -f 09-deploy-volumes/01.PersistentVolume.yaml`
+Create a deployment with persistent volume by running the manifest <i class="fa fa-check-circle" aria-hidden="true" style="color:green"></i> `kubectl apply -f 09-deploy-volumes/01.PersistentVolume.yaml`
 
 {{codebase-file codebase="k8s-workshop" path="code/09-deploy-volumes/01.PersistentVolume.yaml" lang="yaml" ref="master" hidden="true"}}
 
@@ -176,14 +176,13 @@ Now repeat the section [Force Kill](#kill). This time data won't be lost because
 
 Data will be persisted in the PVC volume instead of the ephemeral disk, so that it survives pod restarts/kills.
 
-Press Control+C (linux) / Command+C (MacOS) to exit kubectl port-forward
+<i class="fa fa-bell fa-lg" aria-hidden="true" style="color:orange"></i> Press Control+C (linux) / Command+C (MacOS) to exit kubectl port-forward
 
 ### Clean-up
 
 Run the script <i class="fa fa-undo" aria-hidden="true" style="color:red"></i> `09-deploy-volumes/_1.clean.sh` to undo the changes
 
 {{codebase-file codebase="k8s-workshop" path="code/09-deploy-volumes/_1.clean.sh" lang="bash" ref="master" hidden="true"}}
-
 
 # Wrap-up
 <ul class="fa-ul">

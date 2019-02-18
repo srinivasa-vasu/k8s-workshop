@@ -27,7 +27,7 @@ manifests,
 
 ## Create a Deployment
 
-**List the deployments in the default namespace.**
+**List the deployments in the default namespace**
 
 ``` go-cli
 kubectl get deploy
@@ -42,7 +42,7 @@ Create a new Deployment by running the manifest <i class="fa fa-check-circle" ar
 
 {{codebase-file codebase="k8s-workshop" path="code/04-deploy/01.Deployment.yaml" lang="yaml" ref="master" hidden="true"}}
 
-**Verify the output.**
+**Verify the output**
 
     kubectl get deploy,rs,pods
 
@@ -60,13 +60,13 @@ The output will be similar to this
     pod/spring-music-846f7447f-zqfs2      1/1       Running   1          2m16s
 
 
-No need to run the clean-up script for this example.
+<i class="fa fa-bell fa-lg" aria-hidden="true" style="color:orange"></i> No need to run the clean-up script for this example.
 
 ## Update a Deployment
 
 ### Recreate
 
-**List the deployments in the default namespace.**
+**List the deployments in the default namespace**
 
 ``` go-cli
 kubectl get deploy,rs,pods
@@ -85,7 +85,7 @@ The output will be similar to this,
     pod/spring-music-846f7447f-znb58      1/1       Running   1          2m16s
     pod/spring-music-846f7447f-zqfs2      1/1       Running   1          2m16s
 
-**Watch the deployment in a new window.**
+<i class="fa fa-bell fa-lg" aria-hidden="true" style="color:orange"></i> Watch the deployment in a new window
 
 ``` go-cli
 watch kubectl get deploy,rs,pods
@@ -139,7 +139,7 @@ Create a new Deployment by running the manifest <i class="fa fa-check-circle" ar
 
 {{codebase-file codebase="k8s-workshop" path="code/04-deploy/03.Deployment.yaml" lang="yaml" ref="master" hidden="true"}}
 
-**List the deployments in the default namespace.**
+**List the deployments in the default namespace**
 
 ``` go-cli
 kubectl get deploy,rs,pods
@@ -159,7 +159,7 @@ The output will be similar to this,
     pod/spring-music-846f7447f-znb58      1/1       Running   1          2m16s
     pod/spring-music-846f7447f-zqfs2      1/1       Running   1          2m16s
 
-**Watch the deployment in a new window.**
+<i class="fa fa-bell fa-lg" aria-hidden="true" style="color:orange"></i> Watch the deployment in a new window
 
 ``` go-cli
 watch kubectl get deploy,rs,pods
@@ -213,7 +213,6 @@ Pods that can be created over the desired number of Pods.
 Exit the watch window and run the script <i class="fa fa-undo" aria-hidden="true" style="color:red"></i> `04-deploy/03_.clean.sh` to undo the changes
 
 {{codebase-file codebase="k8s-workshop" path="code/04-deploy/03_.clean.sh" lang="bash" ref="master" hidden="true"}}
-
 
 # Wrap-up
 <ul class="fa-ul">

@@ -22,7 +22,7 @@ manifests,
 
 ## Create a Multi-App Deployment
 
-**List the deployments in the default namespace.**
+**List the deployments in the default namespace**
 
 ``` go-cli
 kubectl get deploy
@@ -125,14 +125,13 @@ The output will be similar to this
 
 This is the same label that is filtered through Services's Selector. **jhipapp-postgresql**/**jhipapp-postgresql.default.svc.cluster.local** is the internal DNS of postgres `pod/jhipapp-postgresql-79bf48fbc8-ltgkr` POD.
 
-Press Control+C (linux) / Command+C (MacOS) to exit kubectl port-forward
+<i class="fa fa-bell fa-lg" aria-hidden="true" style="color:orange"></i> Press Control+C (linux) / Command+C (MacOS) to exit kubectl port-forward
 
 ### Clean-up
 
 Run the script <i class="fa fa-undo" aria-hidden="true" style="color:red"></i> `06-deploy-svc/_1.clean.sh` to undo the changes
 
 {{codebase-file codebase="k8s-workshop" path="code/06-deploy-svc/_1.clean.sh" lang="bash" ref="master" hidden="true"}}
-
 
 # Wrap-up
 <ul class="fa-ul">

@@ -39,7 +39,7 @@ manifests,
 
 ## Create a Deployment with Init-Container
 
-**List the deployments in the default namespace.**
+**List the deployments in the default namespace**
 
 ``` go-cli
 kubectl get deploy
@@ -147,13 +147,11 @@ The output will be similar to this
 
 `DB is UP%`
 
-
 ### Clean-up
 
 Run the script <i class="fa fa-undo" aria-hidden="true" style="color:red"></i> `08-deploy-initcon/_1.clean.sh` to undo the changes
 
 {{codebase-file codebase="k8s-workshop" path="code/08-deploy-initcon/_1.clean.sh" lang="bash" ref="master" hidden="true"}}
-
 
 # Wrap-up
 <ul class="fa-ul">

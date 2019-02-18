@@ -26,7 +26,7 @@ manifests,
 
 ## Create a ReplicaSet
 
-**List the replicasets in the default namespace.**
+**List the replicasets in the default namespace**
 
 ``` go-cli
 kubectl get rs
@@ -42,7 +42,7 @@ Create a new ReplicaSet by running the manifest <i class="fa fa-check-circle" ar
 {{codebase-file codebase="k8s-workshop" path="code/02-rs/01.ReplicaSet.yaml" lang="yaml" ref="master" hidden="true"}}
 
 
-**Verify that a rs named spring-music gets created.**
+**Verify that a rs named spring-music gets created**
 
     kubectl get rs,pods
 
@@ -68,7 +68,7 @@ Create a new ReplicaSet by running the manifest <i class="fa fa-check-circle" ar
 
 {{codebase-file codebase="k8s-workshop" path="code/02-rs/02.ReplicaSet-node-affinity-hard.yaml" lang="yaml" ref="master" hidden="true"}}
 
-**Verify the output of the command.**
+**Verify the output of the command**
 
     kubectl get rs,pods
 
@@ -117,7 +117,7 @@ Create a new ReplicaSet by running the manifest <i class="fa fa-check-circle" ar
 {{codebase-file codebase="k8s-workshop" path="code/02-rs/03.ReplicaSet-node-affinity-soft.yaml" lang="yaml" ref="master" hidden="true"}}
 
 
-**Verify the output of the command.**
+**Verify the output of the command**
 
     kubectl get rs,pods
 
@@ -150,7 +150,7 @@ Create a new ReplicaSet by running the manifest <i class="fa fa-check-circle" ar
 {{codebase-file codebase="k8s-workshop" path="code/02-rs/04.ReplicaSet-pod-antiaffinity.yaml" lang="yaml" ref="master" hidden="true"}}
 
 
-**Verify the output of the command.**
+**Verify the output of the command**
 
     kubectl get rs,pods
 
@@ -177,7 +177,6 @@ podAntiAffinity rule makes sure that instances get distributed across nodes and 
 Run the script <i class="fa fa-undo" aria-hidden="true" style="color:red"></i> `02-rs/_1.clean.sh` to undo the changes
 
 {{codebase-file codebase="k8s-workshop" path="code/02-rs/_1.clean.sh" lang="bash" ref="master" hidden="true"}}
-
 
 # Wrap-up
 <ul class="fa-ul">

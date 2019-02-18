@@ -30,7 +30,7 @@ manifests,
 
 ## Tolerate a Taint
 
-**List the replicasets in the default namespace.**
+**List the replicasets in the default namespace**
 
 ``` go-cli
 kubectl get rs
@@ -74,7 +74,7 @@ Run the script <i class="fa fa-undo" aria-hidden="true" style="color:red"></i> `
 
 ## Un-tolerate a Taint
 
-**List the replicasets in the default namespace.**
+**List the replicasets in the default namespace**
 
 ``` go-cli
 kubectl get rs
@@ -125,7 +125,7 @@ Run the script <i class="fa fa-undo" aria-hidden="true" style="color:red"></i> `
 
 ## Runtime Taint
 
-**List the replicasets in the default namespace.**
+**List the replicasets in the default namespace**
 
 ``` go-cli
 kubectl get rs
@@ -135,7 +135,6 @@ kubectl get rs
 The output will be similar to this,
 
     No resources found.
-
 
 
 Create node and pod related changes by running the script <i class="fa fa-check-circle" aria-hidden="true" style="color:green"></i> `sh 03-no-po/02_.apply.sh`
@@ -168,7 +167,6 @@ operator would make the pod un-tolerate the taint.
 Run the script <i class="fa fa-undo" aria-hidden="true" style="color:red"></i> `03-no-po/03_.clean.sh` to undo the changes
 
 {{codebase-file codebase="k8s-workshop" path="code/03-no-po/03_.clean.sh" lang="bash" ref="master" hidden="true"}}
-
 
 # Wrap-up
 <ul class="fa-ul">
