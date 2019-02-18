@@ -157,6 +157,6 @@ Run the script <i class="fa fa-undo" aria-hidden="true" style="color:red"></i> `
 
 #Wrap-up
 <ul class="fa-ul">
-  <li><i class="fa-li fa fa-square"></i><b>Create Init-Containers</b></li>
-  <li><i class="fa-li fa fa-square"></i><b>Inspect Init-Containers</b></li>
+  <li><i class="fa-li fa fa-check-square"></i><b>Create Init-Containers</b></li>
+  <li><i class="fa-li fa fa-check-square"></i><b>Inspect Init-Containers</b></li>
 </ul>

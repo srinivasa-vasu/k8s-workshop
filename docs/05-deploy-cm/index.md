@@ -65,7 +65,7 @@ The output will be similar to this
 
 ![hello-world](helloworld.png)
 
-> Press Control+C (linux) / Command+C (MacOS) to exit kubectl port-forward
+Press Control+C (linux) / Command+C (MacOS) to exit kubectl port-forward
 
 ## Update a Deployment
 
@@ -130,9 +130,9 @@ The output will be similar to this
 
 ![hello-world](helloworld1.png)
 
-> This time _hello.folks_ property is referred from the _ConfigMap_ object key
+This time _hello.folks_ property is referred from the _ConfigMap_ object key
 
-> Press Control+C (linux) / Command+C (MacOS) to exit kubectl port-forward
+Press Control+C (linux) / Command+C (MacOS) to exit kubectl port-forward
 
 ### Externalize Config - as File Volume mount
 
@@ -202,9 +202,9 @@ The output will be similar to this
 ![hello-world](helloworld2.png)
 
 
-> This time properties are referred from application.properties file mount
+This time properties are referred from application.properties file mount
 
-> Press Control+C (linux) / Command+C (MacOS) to exit kubectl port-forward
+Press Control+C (linux) / Command+C (MacOS) to exit kubectl port-forward
 
 
 #### Clean-up
@@ -216,6 +216,6 @@ Run the script <i class="fa fa-undo" aria-hidden="true" style="color:red"></i> `
 
 #Wrap-up
 <ul class="fa-ul">
-  <li><i class="fa-li fa fa-square"></i><b>Externalize Config Properties as environment variables</b></li>
-  <li><i class="fa-li fa fa-square"></i><b>Externalize Config Properties as Files</b></li>
+  <li><i class="fa-li fa fa-check-square"></i><b>Externalize Config Properties as environment variables</b></li>
+  <li><i class="fa-li fa fa-check-square"></i><b>Externalize Config Properties as Files</b></li>
 </ul>

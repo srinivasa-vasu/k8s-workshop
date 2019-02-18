@@ -137,7 +137,7 @@ In both the manifests `postgres-password` is referred from the _Secret_ object n
 
 Log-in with `admin/admin` and try CRUD operations. Changes will be referenced from the postgres `pod/jhipapp-postgresql-846b69457d-b84ft` backing store same as last time without any issues.
 
-> Press Control+C (linux) / Command+C (MacOS) to exit kubectl port-forward
+Press Control+C (linux) / Command+C (MacOS) to exit kubectl port-forward
 
 ### Clean-up
 
@@ -148,6 +148,6 @@ Run the script <i class="fa fa-undo" aria-hidden="true" style="color:red"></i> `
 
 #Wrap-up
 <ul class="fa-ul">
-  <li><i class="fa-li fa fa-square"></i><b>Externalize sensitive info</b></li>
-  <li><i class="fa-li fa fa-square"></i><b>Verify Deployment with externalized Secret</b></li>ata 
+  <li><i class="fa-li fa fa-check-square"></i><b>Externalize sensitive info</b></li>
+  <li><i class="fa-li fa fa-check-square"></i><b>Verify Deployment with externalized Secret</b></li>ata 
 </ul>

@@ -60,7 +60,7 @@ The output will be similar to this
     pod/spring-music-846f7447f-zqfs2      1/1       Running   1          2m16s
 
 
-> No need to run the clean-up script for this example.
+No need to run the clean-up script for this example.
 
 ## Update a Deployment
 

@@ -125,7 +125,7 @@ The output will be similar to this
 
 This is the same label that is filtered through Services's Selector. **jhipapp-postgresql**/**jhipapp-postgresql.default.svc.cluster.local** is the internal DNS of postgres `pod/jhipapp-postgresql-79bf48fbc8-ltgkr` POD.
 
-> Press Control+C (linux) / Command+C (MacOS) to exit kubectl port-forward
+Press Control+C (linux) / Command+C (MacOS) to exit kubectl port-forward
 
 ### Clean-up
 
@@ -136,6 +136,6 @@ Run the script <i class="fa fa-undo" aria-hidden="true" style="color:red"></i> `
 
 #Wrap-up
 <ul class="fa-ul">
-  <li><i class="fa-li fa fa-square"></i><b>Multiple App Deployments with Service Discovery</b></li>
-  <li><i class="fa-li fa fa-square"></i><b>App2App Comm using internal native discovery</b></li>
+  <li><i class="fa-li fa fa-check-square"></i><b>Multiple App Deployments with Service Discovery</b></li>
+  <li><i class="fa-li fa fa-check-square"></i><b>App2App Comm using internal native discovery</b></li>
 </ul>
