@@ -215,7 +215,7 @@ Exit the watch window and run the script <i class="fa fa-undo" aria-hidden="true
 {{codebase-file codebase="k8s-workshop" path="code/04-deploy/03_.clean.sh" lang="bash" ref="master" hidden="true"}}
 
 
-#Wrap-up
+# Wrap-up
 <ul class="fa-ul">
   <li><i class="fa-li fa fa-check-square"></i><b>Create</b> a <b>Deployment</b></li>
   <li><i class="fa-li fa fa-check-square"></i>Deployment <b>Update Strategies</b></li>

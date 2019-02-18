@@ -155,7 +155,7 @@ Run the script <i class="fa fa-undo" aria-hidden="true" style="color:red"></i> `
 {{codebase-file codebase="k8s-workshop" path="code/08-deploy-initcon/_1.clean.sh" lang="bash" ref="master" hidden="true"}}
 
 
-#Wrap-up
+# Wrap-up
 <ul class="fa-ul">
   <li><i class="fa-li fa fa-check-square"></i><b>Create Init-Containers</b></li>
   <li><i class="fa-li fa fa-check-square"></i><b>Inspect Init-Containers</b></li>

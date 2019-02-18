@@ -214,7 +214,7 @@ Run the script <i class="fa fa-undo" aria-hidden="true" style="color:red"></i> `
 {{codebase-file codebase="k8s-workshop" path="code/05-deploy-cm/_1.clean.sh" lang="bash" ref="master" hidden="true"}}
 
 
-#Wrap-up
+# Wrap-up
 <ul class="fa-ul">
   <li><i class="fa-li fa fa-check-square"></i><b>Externalize Config Properties as environment variables</b></li>
   <li><i class="fa-li fa fa-check-square"></i><b>Externalize Config Properties as Files</b></li>
