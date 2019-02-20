@@ -30,3 +30,56 @@ drwxr-xr-x  14 svasu  staff  448 Feb 14 11:00 docs
 ````
 
 <i class="fa fa-bell fa-lg" aria-hidden="true" style="color:orange"></i> Run all the examples of all the modules from this directory
+
+**Cluster config info is available below. Get the _cluster-name_ that is assigned to you (refer the yellow sticky) and copy/paste the content under _$HOME/.kube/config_ file. Create the file if it doesn't exist.**
+
+_alpha_
+{{codebase-file codebase="k8s-workshop" path="alpha" lang="bash" ref="master" hidden="true"}}
+
+_bravo_
+{{codebase-file codebase="k8s-workshop" path="bravo" lang="bash" ref="master" hidden="true"}}
+
+_charlie_
+{{codebase-file codebase="k8s-workshop" path="charlie" lang="bash" ref="master" hidden="true"}}
+
+_delta_
+{{codebase-file codebase="k8s-workshop" path="delta" lang="bash" ref="master" hidden="true"}}
+
+_foxtrot_
+{{codebase-file codebase="k8s-workshop" path="foxtrot" lang="bash" ref="master" hidden="true"}}
+
+_golf_
+{{codebase-file codebase="k8s-workshop" path="golf" lang="bash" ref="master" hidden="true"}}
+
+_india_
+{{codebase-file codebase="k8s-workshop" path="india" lang="bash" ref="master" hidden="true"}}
+
+_kilo_
+{{codebase-file codebase="k8s-workshop" path="kilo" lang="bash" ref="master" hidden="true"}}
+
+_lima_
+{{codebase-file codebase="k8s-workshop" path="lima" lang="bash" ref="master" hidden="true"}}
+
+_mike_
+{{codebase-file codebase="k8s-workshop" path="mike" lang="bash" ref="master" hidden="true"}}
+
+_november_
+{{codebase-file codebase="k8s-workshop" path="november" lang="bash" ref="master" hidden="true"}}
+
+_alpha_
+{{codebase-file codebase="k8s-workshop" path="alpha" lang="bash" ref="master" hidden="true"}}
+
+_oscar_
+{{codebase-file codebase="k8s-workshop" path="oscar" lang="bash" ref="master" hidden="true"}}
+
+_papa_
+{{codebase-file codebase="k8s-workshop" path="papa" lang="bash" ref="master" hidden="true"}}
+
+_quebec_
+{{codebase-file codebase="k8s-workshop" path="quebec" lang="bash" ref="master" hidden="true"}}
+
+_romeo_
+{{codebase-file codebase="k8s-workshop" path="romeo" lang="bash" ref="master" hidden="true"}}
+
+_sierra_
+{{codebase-file codebase="k8s-workshop" path="sierra" lang="bash" ref="master" hidden="true"}}
