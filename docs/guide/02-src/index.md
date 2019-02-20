@@ -34,52 +34,49 @@ drwxr-xr-x  14 svasu  staff  448 Feb 14 11:00 docs
 **Cluster config info is available below. Get the _cluster-name_ that is assigned to you (refer the yellow sticky) and copy/paste the content under _$HOME/.kube/config_ file. Create the file if it doesn't exist.**
 
 _alpha_
-{{codebase-file codebase="k8s-workshop" path="alpha" lang="yaml" ref="master" hidden="true"}}
+{{codebase-file codebase="k8s-workshop" path="docs/guide/02-src/alpha" lang="yaml" ref="master" hidden="true"}}
 
 _bravo_
-{{codebase-file codebase="k8s-workshop" path="bravo" lang="yaml" ref="master" hidden="true"}}
+{{codebase-file codebase="k8s-workshop" path="docs/guide/02-src/bravo" lang="yaml" ref="master" hidden="true"}}
 
 _charlie_
-{{codebase-file codebase="k8s-workshop" path="charlie" lang="yaml" ref="master" hidden="true"}}
+{{codebase-file codebase="k8s-workshop" path="docs/guide/02-src/charlie" lang="yaml" ref="master" hidden="true"}}
 
 _delta_
-{{codebase-file codebase="k8s-workshop" path="delta" lang="yaml" ref="master" hidden="true"}}
+{{codebase-file codebase="k8s-workshop" path="docs/guide/02-src/delta" lang="yaml" ref="master" hidden="true"}}
 
 _foxtrot_
-{{codebase-file codebase="k8s-workshop" path="foxtrot" lang="yaml" ref="master" hidden="true"}}
+{{codebase-file codebase="k8s-workshop" path="docs/guide/02-src/foxtrot" lang="yaml" ref="master" hidden="true"}}
 
 _golf_
-{{codebase-file codebase="k8s-workshop" path="golf" lang="yaml" ref="master" hidden="true"}}
+{{codebase-file codebase="k8s-workshop" path="docs/guide/02-src/golf" lang="yaml" ref="master" hidden="true"}}
 
 _india_
-{{codebase-file codebase="k8s-workshop" path="india" lang="yaml" ref="master" hidden="true"}}
+{{codebase-file codebase="k8s-workshop" path="docs/guide/02-src/india" lang="yaml" ref="master" hidden="true"}}
 
 _kilo_
-{{codebase-file codebase="k8s-workshop" path="kilo" lang="yaml" ref="master" hidden="true"}}
+{{codebase-file codebase="k8s-workshop" path="docs/guide/02-src/kilo" lang="yaml" ref="master" hidden="true"}}
 
 _lima_
-{{codebase-file codebase="k8s-workshop" path="lima" lang="yaml" ref="master" hidden="true"}}
+{{codebase-file codebase="k8s-workshop" path="docs/guide/02-src/lima" lang="yaml" ref="master" hidden="true"}}
 
 _mike_
-{{codebase-file codebase="k8s-workshop" path="mike" lang="yaml" ref="master" hidden="true"}}
+{{codebase-file codebase="k8s-workshop" path="docs/guide/02-src/mike" lang="yaml" ref="master" hidden="true"}}
 
 _november_
-{{codebase-file codebase="k8s-workshop" path="november" lang="yaml" ref="master" hidden="true"}}
-
-_alpha_
-{{codebase-file codebase="k8s-workshop" path="alpha" lang="yaml" ref="master" hidden="true"}}
+{{codebase-file codebase="k8s-workshop" path="docs/guide/02-src/november" lang="yaml" ref="master" hidden="true"}}
 
 _oscar_
-{{codebase-file codebase="k8s-workshop" path="oscar" lang="yaml" ref="master" hidden="true"}}
+{{codebase-file codebase="k8s-workshop" path="docs/guide/02-src/oscar" lang="yaml" ref="master" hidden="true"}}
 
 _papa_
-{{codebase-file codebase="k8s-workshop" path="papa" lang="yaml" ref="master" hidden="true"}}
+{{codebase-file codebase="k8s-workshop" path="docs/guide/02-src/papa" lang="yaml" ref="master" hidden="true"}}
 
 _quebec_
-{{codebase-file codebase="k8s-workshop" path="quebec" lang="yaml" ref="master" hidden="true"}}
+{{codebase-file codebase="k8s-workshop" path="docs/guide/02-src/quebec" lang="yaml" ref="master" hidden="true"}}
 
 _romeo_
-{{codebase-file codebase="k8s-workshop" path="romeo" lang="yaml" ref="master" hidden="true"}}
+{{codebase-file codebase="k8s-workshop" path="docs/guide/02-src/romeo" lang="yaml" ref="master" hidden="true"}}
 
 _sierra_
-{{codebase-file codebase="k8s-workshop" path="sierra" lang="yaml" ref="master" hidden="true"}}
+{{codebase-file codebase="k8s-workshop" path="docs/guide/02-src/sierra" lang="yaml" ref="master" hidden="true"}}
