@@ -173,7 +173,7 @@ Unlike other manifests, only a limited fields of *Pod* spec can be overridden. H
 
 ## Pod Node binding
 
-You can constrain a pod to only be able to run on particular nodes or to prefer to run on particular nodes. There are several ways to do this, and will look at how to use label selectors to make the selection
+You can constrain a pod to only be able to run on a particular node(s). There are several ways to do this, and will look at how to use label selectors to make the selection
 
 Create a new Pod by running the manifest <i class="fa fa-check-circle" aria-hidden="true" style="color:green"></i> `kubectl apply -f 01-pod/05.Pod-node-selector.yaml`
 
