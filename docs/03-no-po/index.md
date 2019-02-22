@@ -137,7 +137,7 @@ The output will be similar to this,
     No resources found.
 
 
-Create node and pod related changes by running the script <i class="fa fa-check-circle" aria-hidden="true" style="color:green"></i> `sh 03-no-po/02_.apply.sh`
+Create node and pod related changes by running the script <i class="fa fa-check-circle" aria-hidden="true" style="color:green"></i> `sh 03-no-po/03_.apply.sh`
 
 {{codebase-file codebase="k8s-workshop" path="code/03-no-po/03_.apply.sh" lang="bash" ref="master" hidden="true"}}
 

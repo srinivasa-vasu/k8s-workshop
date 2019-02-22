@@ -33,9 +33,9 @@ The output will be similar to this,
 
     No resources found.
 
-Create a new Deployment by running the script <i class="fa fa-check-circle" aria-hidden="true" style="color:green"></i> `kubectl apply -f 10-deploy-multicon/1_.apply.sh`
+Create a new Deployment by running the script <i class="fa fa-check-circle" aria-hidden="true" style="color:green"></i> `sh 10-deploy-multicon/1_.apply.sh`
 
-{{codebase-file codebase="k8s-workshop" path="code/10-deploy-multicon/1_.apply.sh" lang="yaml" ref="master" hidden="true"}}
+{{codebase-file codebase="k8s-workshop" path="code/10-deploy-multicon/1_.apply.sh" lang="bash" ref="master" hidden="true"}}
 
 **Verify the output**
 
