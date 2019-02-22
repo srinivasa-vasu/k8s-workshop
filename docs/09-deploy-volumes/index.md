@@ -1,5 +1,5 @@
 ---
-pageTitle: Service Discovery
+pageTitle: Volume Rules
 ---
 
 <md-icon class="fa fa-clock-o fa-lg" aria-hidden="true"></md-icon> Time to complete 30ms
