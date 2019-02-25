@@ -19,7 +19,7 @@ Finish setting up the tools before start doing this exercise. Refer [tools](../0
 
 - navigate to the cloned repo directory
 
-`cd k8s-workshop`
+`cd k8s-workshop/code`
 
 <i class="fa fa-spinner fa-pulse fa-fw"></i>
 The output will be similar to this,
